@@ -34,7 +34,7 @@ audio, canvas, video {
 
 /* 要注意表单元素并不继承父级 font 的问题 */
 body, button, input, select, textarea {
-  font: 300 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
+  font: 400 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
 }
 
 button::-moz-focus-inner,
@@ -126,7 +126,7 @@ sub {
 
 /* 让链接在 hover 状态下显示下划线 */
 a {
-  color: #1abc9c;
+  color: #000;
 }
 
 a:hover {
@@ -134,7 +134,7 @@ a:hover {
 }
 
 .typo a {
-  border-bottom: 1px solid #1abc9c;
+  border-bottom: 1px solid #333;
 }
 
 .typo a:hover {
@@ -177,6 +177,7 @@ pre {
   padding: 1em 1.5em;
   display: block;
   -webkit-overflow-scrolling: touch;
+  overflow: auto;
 }
 
 /* 一致化 horizontal rule */
@@ -236,14 +237,14 @@ strong, b {
 /* 保证块/段落之间的空白隔行 */
 .typo p, .typo pre, .typo ul, .typo ol, .typo dl, .typo form, .typo hr, .typo table,
 .typo-p, .typo-pre, .typo-ul, .typo-ol, .typo-dl, .typo-form, .typo-hr, .typo-table, blockquote {
-  margin-bottom: 1.2em
+  margin-bottom: .8em
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
-  font-weight: 100;
+  font-weight: normal;
   color: #000;
-  line-height: 1.35;
+  line-height: 1;
 }
 
 /* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
