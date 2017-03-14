@@ -7,6 +7,8 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  font-family: -apple-system-font,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
 }
 
 /* 如果你的项目仅支持 IE9+ | Chrome | Firefox 等，推荐在 <html> 中添加 .borderbox 这个 class */
@@ -59,9 +61,9 @@ blockquote {
   position: relative;
   color: #999;
   font-weight: 400;
-  border-left: 1px solid #1abc9c;
+  border-left: 2px solid #1abc9c;
   padding-left: 1em;
-  margin: 1em 3em 1em 2em;
+  margin: 1em 3em 1em 0;
 }
 
 @media only screen and ( max-width: 640px ) {
@@ -86,7 +88,7 @@ del {
   text-decoration: line-through;
 }
 
-address, caption, cite, code, dfn, em, th, var {
+address, caption, cite, code, dfn, th, var {
   font-style: normal;
   font-weight: 400;
 }
@@ -133,12 +135,12 @@ a:hover {
   text-decoration: underline;
 }
 
+/* 下划线继承字体颜色 */
 .typo a {
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid;
 }
 
 .typo a:hover {
-  border-bottom-color: #555;
   color: #555;
   text-decoration: none;
 }
@@ -168,7 +170,7 @@ mark {
 
 /* 代码片断 */
 pre, code, pre tt {
-  font-family: Courier, 'Courier New', monospace;
+  font-family: 'Source Code Pro',Consolas,Menlo,Monaco,Courier New,monospace;
 }
 
 pre {
@@ -189,7 +191,7 @@ hr {
 }
 
 /* 底部印刷体、版本等标记 */
-small, .typo-small,
+small,
   /* 图片说明 */
 figcaption {
   font-size: 0.9em;
@@ -204,19 +206,6 @@ strong, b {
 /* 可拖动文件添加拖动手势 */
 [draggable] {
   cursor: move;
-}
-
-.clearfix:before, .clearfix:after {
-  content: "";
-  display: table;
-}
-
-.clearfix:after {
-  clear: both;
-}
-
-.clearfix {
-  zoom: 1;
 }
 
 /* 强制文本换行 */
@@ -236,77 +225,75 @@ strong, b {
 
 /* 保证块/段落之间的空白隔行 */
 .typo p, .typo pre, .typo ul, .typo ol, .typo dl, .typo form, .typo hr, .typo table,
-.typo-p, .typo-pre, .typo-ul, .typo-ol, .typo-dl, .typo-form, .typo-hr, .typo-table, blockquote {
+.typo blockquote {
   margin-bottom: .8em
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
   font-weight: normal;
   color: #000;
   line-height: 1;
 }
 
 /* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
-.typo h1, .typo h2, .typo h3, .typo h4, .typo h5, .typo h6,
-.typo-h1, .typo-h2, .typo-h3, .typo-h4, .typo-h5, .typo-h6 {
+.typo h1, .typo h2, .typo h3, .typo h4, .typo h5, .typo h6 {
   margin-top: 1.2em;
   margin-bottom: 0.6em;
   line-height: 1.35;
 }
 
-.typo h1, .typo-h1 {
+.typo h1 {
   font-size: 2em;
 }
 
-.typo h2, .typo-h2 {
+.typo h2 {
   font-size: 1.8em;
 }
 
-.typo h3, .typo-h3 {
+.typo h3 {
   font-size: 1.6em;
 }
 
-.typo h4, .typo-h4 {
+.typo h4 {
   font-size: 1.4em;
 }
 
-.typo h5, .typo h6, .typo-h5, .typo-h6 {
+.typo h5, .typo h6 {
   font-size: 1.2em;
 }
 
 /* 在文章中，应该还原 ul 和 ol 的样式 */
-.typo ul, .typo-ul {
+.typo ul {
   margin-left: 1.3em;
   list-style: disc;
 }
 
-.typo ol, .typo-ol {
+.typo ol {
   list-style: decimal;
   margin-left: 1.9em;
 }
 
-.typo li ul, .typo li ol, .typo-ul ul, .typo-ul ol, .typo-ol ul, .typo-ol ol {
+.typo li ul, .typo li ol {
   margin-bottom: 0.8em;
   margin-left: 2em;
 }
 
-.typo li ul, .typo-ul ul, .typo-ol ul {
+.typo li ul {
   list-style: circle;
 }
 
 /* 同 ul/ol，在文章中应用 table 基本格式 */
-.typo table th, .typo table td, .typo-table th, .typo-table td, .typo table caption {
+.typo table th, .typo table td {
   border: 1px solid #ddd;
   padding: 0.5em 1em;
   color: #666;
 }
 
-.typo table th, .typo-table th {
+.typo table th {
   background: #fbfbfb;
 }
 
-.typo table thead th, .typo-table thead th {
+.typo table thead th {
   background: #f1f1f1;
 }
 
@@ -315,29 +302,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* 去除 webkit 中 input 和 textarea 的默认样式  */
-.typo-input, .typo-textarea {
+.typo input, .typo textarea {
   -webkit-appearance: none;
   border-radius: 0;
 }
 
-.typo-em, .typo em, legend, caption {
+legend, caption {
   color: #000;
   font-weight: inherit;
 }
 
-/* 着重号，只能在少量（少于100个字符）且全是全角字符的情况下使用 */
-.typo-em {
-  position: relative;
-}
-
-.typo-em:after {
-  position: absolute;
-  top: 0.65em;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  content: "・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・";
+.typo em,
+.typo i {
+    font-style: italic;
 }
 
 /* Responsive images */
